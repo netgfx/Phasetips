@@ -43,22 +43,17 @@ new Phasetips({
 <strong>API Functions</strong>
 
 <ul>
-	<li><strong>createSlider</strong> | Creates the slider object and the slides</li>
-	<li><strong>startSlider</strong> | Starts the automatic rotation of the slider if autoAnimate is set to true</li>
-	<li><strong>stopSlider</strong> | Stops the automatic rotation of slides</li>
-	<li><strong>moveToSlide</strong> | Navigate to specific slide index (args: index:Number, animated:Boolean)</li>
-	<li><strong>goToNext</strong> | Navigate to the next slide</li>
-	<li><strong>goToPrev</strong> | Navigate to the previous slide</li>
-	<li><strong>getCurrentIndex</strong> | Receive the current slide index</li>
-	<li><strong>hideSlider</strong> | Render the slider not visible (the slider will not be able to receive input events)</li>
-	<li><strong>showSlider</strong> | Render the slider visible</li>
+    <li><strong>printOptions: </strong> Prints the options specified in the constructor on the console</li>
 </ul>
 
 <i>
-*Note: When automatic rotation has started, navigating from the control arrows (next, prev) will stop the auto animation
+
+
 </i>
 
 <hr>
+
+>The TODO list is still very long but it will get there ;)
 
 >Please let me know if you come across some bug or have something to contribute
 
