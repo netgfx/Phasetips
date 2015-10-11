@@ -100,11 +100,14 @@ var Phasetips = function (options) {
                 mainGroup.x = _object.x + ((_object.width / 2) - (mainGroup._width) / 2);
                 mainGroup.y = (_object.y - (_positionOffset+mainGroup._height));
             } else if (_position === "bottom") {
-
+                mainGroup.x = _object.x + ((_object.width / 2) - (mainGroup._width) / 2);
+                mainGroup.y = (_object.y + (_positionOffset+mainGroup._height));
             } else if (_position === "left") {
-
+                mainGroup.x = _object.x - _positionOffset;
+                mainGroup.y = (_object.y - (_positionOffset+mainGroup._height));
             } else if (_position === "right") {
-
+                mainGroup.x = _object.x + _object.width + _positionOffset;
+                mainGroup.y = (_object.y - (_positionOffset+mainGroup._height));
             }
 
         }
