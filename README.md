@@ -15,9 +15,7 @@ new Phasetips({
   });
 ```
 
-<strong>View examples:</strong>
-<a href="http://www.netgfx.com/trunk/games/libs/phaseslider/examples/example1.html">Advanced example</a> |
-<a href="http://www.netgfx.com/trunk/games/libs/phaseslider/examples/index.html">Simple example</a>
+<!--<strong>View examples:</strong>-->
 
   <hr>
 
