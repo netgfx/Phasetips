@@ -7,6 +7,8 @@ var slider;
 GameState.prototype.preload = function () {
   this.load.image('bg', "http://i221.photobucket.com/albums/dd22/djmid71/bg1_zpsxrhh1f86.jpg");
   this.load.image("char", "assets/char1.png");
+  this.load.image("char2", "assets/char2.png");
+  this.load.image("customTip", "assets/customTip.png");
 
   //
 
@@ -29,10 +31,63 @@ GameState.prototype.create = function () {
   var block1 = game.add.image(400, 150, "char");
   block1.scale.setTo(0.5, 0.5);
   window.console.log(block1);
+
+  var block2 = game.add.text(10, 10, "Another tooltip with Phaser.Text content", {
+    fontSize: 12,
+    fill: "#ffffff",
+    stroke: "#1e1e1e",
+    strokeThickness: 1,
+    wordWrap: true,
+    wordWrapWidth: 200
+  });
+
+  var block3 = game.add.image(0, 0, "customTip");
+
+  var block4 = game.add.group();
+  var img = game.add.image(10, 40, "char2");
+  img.scale.setTo(0.3, 0.3);
+
+  var txt = game.add.text(10, 10, "This looks better!", {
+    fontSize: 12,
+    fill: "#ffffff",
+    stroke: "#1e1e1e",
+    strokeThickness: 1,
+    wordWrap: true,
+    wordWrapWidth: 200
+  });
+
+  block4.add(img);
+  block4.add(txt);
+
+  ///////////////////////// TOOLTIPS ///////////////////////////////////////////////////////
+
   var tip1 = new Phasetips({
     targetObject: block1,
-    context: "A cute bunny!",
-    strokeColor: 0xff0000
+    context: "A cute bunny but with a lot of text, that needs to wrap!",
+    strokeColor: 0xff0000,
+    position: "right"
+  });
+
+  var tip2 = new Phasetips({
+    targetObject: block1,
+    context: block2,
+    strokeColor: 0xfec72c,
+    position: "bottom"
+  });
+
+  var tip3 = new Phasetips({
+    targetObject: block1,
+    context: "This is a custom tip with custom background, oh yeah!",
+    position: "top",
+    positionOffset: 0,
+    customBackground: block3,
+    animation: "grow"
+  });
+
+  var tip4 = new Phasetips({
+    targetObject: block1,
+    context: block4,
+    position: "left"
   });
 
   tip1.printOptions();
