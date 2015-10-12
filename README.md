@@ -17,7 +17,7 @@ new Phasetips({
 
 <hr>
 
-<img src="http://www.netgfx.com/trunk/gasmes/tools/phasetips/phasetips.gif"/>
+<img src="http://i221.photobucket.com/albums/dd22/djmid71/phasetips_zpsjtzerwxx.gif"/>
 
 <strong>View example: <a href="http://www.netgfx.com/trunk/games/tools/phasetips">Complete example</a></strong>
 
