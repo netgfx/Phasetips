@@ -17,7 +17,6 @@ var Phasetips = function (options) {
 
     this.onHoverOver = function () {
         var tween;
-        window.console.log(_options, _options.animationDelay);
         if (_options.animation === "fade") {
             tween = game.add.tween(_this.mainGroup).to({
                 alpha: 1
