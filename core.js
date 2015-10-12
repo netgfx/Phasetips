@@ -32,7 +32,7 @@ GameState.prototype.create = function () {
   block1.scale.setTo(0.5, 0.5);
   window.console.log(block1);
 
-  var block2 = game.add.text(10, 10, "Another tooltip with Phaser.Text content", {
+  var block2 = game.add.text(10, 10, "Another tooltip with Phaser.Text content & animation delay", {
     fontSize: 12,
     fill: "#ffffff",
     stroke: "#1e1e1e",
@@ -72,7 +72,8 @@ GameState.prototype.create = function () {
     targetObject: block1,
     context: block2,
     strokeColor: 0xfec72c,
-    position: "bottom"
+    position: "bottom",
+    animationDelay: 500
   });
 
   var tip3 = new Phasetips({

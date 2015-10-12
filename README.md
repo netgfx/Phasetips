@@ -33,6 +33,9 @@ new Phasetips({
 	<li><strong>y</strong> The y position of the tooltip (default: auto based on position)</li>
 	<li><strong>targetObject</strong> The actual object in which the tooltip will appear on hover (default: Game)</li>
 	<li><strong>animation: </strong> The animation effect (default: fade, options:fade, grow, none)</li>
+  <li><strong>animationSpeedShow: </strong> The duration of the animation effect showing the tooltip (default: 300)</li>
+  <li><strong>animationSpeedHide: </strong> The duration of the animation effect hiding the tooltip (default: 200)</li>
+  <li><strong>animationDelay: </strong> The animation delay before showing the tooltip (default: 0)</li>
 	<li><strong>padding: </strong> The padding that the context keeps from the tooltip bounds (default: 20)</li>
     <li><strong>positionOffset: </strong> The position offset that the tooltip keeps from the targetObject (default: 20)</li>
     <li><strong>strokeColor: </strong> The color of tooltip stroke (default: 0xffffff)</li>

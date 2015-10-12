@@ -17,10 +17,11 @@ var Phasetips = function (options) {
 
     this.onHoverOver = function () {
         var tween;
+        window.console.log(_options, _options.animationDelay);
         if (_options.animation === "fade") {
             tween = game.add.tween(_this.mainGroup).to({
                 alpha: 1
-            }, 300, Phaser.Easing.Linear.None, true, 0, 0, false);
+            }, _options.animationSpeedShow, Phaser.Easing.Linear.None, true, _options.animationDelay, 0, false);
         } else if (_options.animation === "slide") {
 
         } else if (_options.animation === "grow") {
@@ -34,7 +35,7 @@ var Phasetips = function (options) {
             tween = game.add.tween(_this.mainGroup.scale).to({
                 x: 1,
                 y: 1
-            }, 300, Phaser.Easing.Linear.None, true, 0, 0, false);
+            }, _options.animationSpeedShow, Phaser.Easing.Linear.None, true, _options.animationDelay, 0, false);
         }
         else {
             _this.mainGroup.visible = true;
@@ -46,7 +47,7 @@ var Phasetips = function (options) {
         if (_options.animation === "fade") {
             var tween = game.add.tween(_this.mainGroup).to({
                 alpha: 0
-            }, 200, Phaser.Easing.Linear.None, true, 0, 0, false);
+            }, _options.animationSpeedHide, Phaser.Easing.Linear.None, true, 0, 0, false);
         }
         else {
             _this.mainGroup.alpha = 0;
@@ -79,10 +80,16 @@ var Phasetips = function (options) {
         //
         var _position = _options.position || "top"; // top, bottom, left, right, auto(?)
         var _animation = _options.animation || "fade"; // fade, slide, grow, none to manually show it
+        var _animationDelay = _options.animationDelay || 0;
         var _content = _options.context || "Hello World"; // string, bitmapText, text, sprite, image, group
         var _object = _options.targetObject || game; // any object
+        var _animationSpeedShow = _options.animationSpeedShow || 300;
+        var _animationSpeedHide = _options.animationSpeedHide || 200;
 
         _options.animation = _animation;
+        _options.animationDelay = _animationDelay;
+        _options.animationSpeedShow = _animationSpeedShow;
+        _options.animationSpeedHide = _animationSpeedHide;
 
         ////////////////////////////////////////////////////////////////////////////////////
 
