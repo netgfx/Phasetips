@@ -16,9 +16,11 @@ var Phasetips = function (options) {
     };
 
     this.onHoverOver = function () {
-        var tween;
+        if(_this.tweenObj) {
+            _this.tweenObj.stop();
+        }
         if (_options.animation === "fade") {
-            tween = game.add.tween(_this.mainGroup).to({
+            _this.tweenObj = game.add.tween(_this.mainGroup).to({
                 alpha: 1
             }, _options.animationSpeedShow, Phaser.Easing.Linear.None, true, _options.animationDelay, 0, false);
         } else if (_options.animation === "slide") {
@@ -31,7 +33,7 @@ var Phasetips = function (options) {
             _this.mainGroup.y =  _this.mainGroup.initialY +_this.mainGroup.height;
             _this.mainGroup.scale.setTo(0, 0);
             _this.mainGroup.alpha = 1;
-            tween = game.add.tween(_this.mainGroup.scale).to({
+            _this.tweenObj = game.add.tween(_this.mainGroup.scale).to({
                 x: 1,
                 y: 1
             }, _options.animationSpeedShow, Phaser.Easing.Linear.None, true, _options.animationDelay, 0, false);
@@ -43,8 +45,12 @@ var Phasetips = function (options) {
     };
 
     this.onHoverOut = function () {
+        if(_this.tweenObj) {
+            _this.tweenObj.stop();
+        }
+
         if (_options.animation === "fade") {
-            var tween = game.add.tween(_this.mainGroup).to({
+            _this.tweenObj = game.add.tween(_this.mainGroup).to({
                 alpha: 0
             }, _options.animationSpeedHide, Phaser.Easing.Linear.None, true, 0, 0, false);
         }
