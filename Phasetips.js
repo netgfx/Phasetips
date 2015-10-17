@@ -66,7 +66,7 @@ var Phasetips = function (options) {
         var _height = _options.height || "auto";
         var _x = _options.x || "auto";
         var _y = _options.y || "auto";
-        var _padding = _options.padding || 20;
+        var _padding = _options.padding === undefined ? 20 : _options.padding;
         var _positionOffset = _options.positionOffset === undefined ? 20 : _options.positionOffset;
         var _bgColor = _options.backgroundColor || 0x000000;
         var _strokeColor = _options.strokeColor || 0xffffff;
@@ -98,6 +98,9 @@ var Phasetips = function (options) {
         _options.animationSpeedHide = _animationSpeedHide;
 
         ////////////////////////////////////////////////////////////////////////////////////
+        var tooltipBG;
+        var tooltipContent;
+        var tooltipArrow;
 
         _this.mainGroup = game.add.group();
         var mainGroup = _this.mainGroup;
@@ -175,9 +178,7 @@ var Phasetips = function (options) {
 
         ///////////////////////////////////////////////////////////////////////////////////
 
-        var tooltipBG;
-        var tooltipContent;
-        var tooltipArrow;
+
 
         if (_customBackground === false) {
             /// create bg

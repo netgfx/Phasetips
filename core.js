@@ -74,7 +74,8 @@ GameState.prototype.create = function () {
     strokeColor: 0xfec72c,
     position: "bottom",
     animationDelay: 500,
-    enableCursor: true
+    enableCursor: true,
+    padding: 20
   });
 
   var tip3 = new Phasetips({
