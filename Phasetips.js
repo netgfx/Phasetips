@@ -72,6 +72,7 @@ var Phasetips = function (options) {
         var _strokeColor = _options.strokeColor || 0xffffff;
         var _strokeWeight = _options.strokeWeight || 2;
         var _customArrow = _options.customArrow || false;
+        var _enableCursor = _options.enableCursor || false;
         var _customBackground = _options.customBackground || false;
         var _textStyle = _options.textStyle || {
             fontSize: 12,
@@ -197,6 +198,9 @@ var Phasetips = function (options) {
 
         // add event listener
         _object.inputEnabled = true;
+        if(_enableCursor){
+            _object.input.useHandCursor = true;
+        }
         _object.events.onInputOver.add(_this.onHoverOver, this);
         _object.events.onInputOut.add(_this.onHoverOut, this);
     };

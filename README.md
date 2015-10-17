@@ -42,6 +42,7 @@ new Phasetips({
     <li><strong>strokeWeight: </strong> The line weight of the tooltip stroke (default: 2)</li>
     <li><strong>customBackground: </strong> If the tooltip will use a custom background (default: false)</li>
     <li><strong>position: </strong> The position of the tooltip based on the targetObject (default: top, options: top, bottom, left, right)</li>
+    <li><strong>enableCursor: </strong> Enables the hand-cursor over the target object when hovered (default: false)</li>
 
 </ul>
 
