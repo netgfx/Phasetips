@@ -3,7 +3,7 @@ A tooltips UI component for Phaser.io Javascript library
 
 <h3>Initialize the tooltip anywhere in your game</h3>
 ```
-var myTooltip = new Phasetips(options);
+var myTooltip = new Phasetips(gameInstance, options);
 ```
 pass necesery options like: context (the object that launches the tooltip)
 
