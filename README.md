@@ -8,7 +8,7 @@ var myTooltip = new Phasetips(options);
 pass necesery options like: context (the object that launches the tooltip)
 
 ```
-new Phasetips({
+new Phasetips(gameInstance, {
     targetObject: myObj,
     context: "Hello tooltip",
     strokeColor: 0xff0000
@@ -22,6 +22,9 @@ new Phasetips({
 <strong>View example: <a href="http://www.netgfx.com/trunk/games/tools/phasetips">Complete example</a></strong>
 
   <hr>
+
+<strong>Game Instance</strong>
+The game instance that we want the tooltips to appear to, such as "game"
 
 <strong>General Options:</strong>
 

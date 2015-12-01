@@ -28,11 +28,11 @@ GameState.prototype.create = function () {
             tooltipBG.drawRect(0, 0, 200, 50,1);*/
 
 
-  var block1 = game.add.image(400, 150, "char");
+  var block1 = _game.add.image(400, 150, "char");
   block1.scale.setTo(0.5, 0.5);
   window.console.log(block1);
 
-  var block2 = game.add.text(10, 10, "Another tooltip with Phaser.Text content & animation delay", {
+  var block2 = _game.add.text(10, 10, "Another tooltip with Phaser.Text content & animation delay", {
     fontSize: 12,
     fill: "#ffffff",
     stroke: "#1e1e1e",
@@ -41,13 +41,13 @@ GameState.prototype.create = function () {
     wordWrapWidth: 200
   });
 
-  var block3 = game.add.image(0, 0, "customTip");
+  var block3 = _game.add.image(0, 0, "customTip");
 
-  var block4 = game.add.group();
-  var img = game.add.image(10, 40, "char2");
+  var block4 = _game.add.group();
+  var img = _game.add.image(10, 40, "char2");
   img.scale.setTo(0.3, 0.3);
 
-  var txt = game.add.text(10, 10, "This looks better!", {
+  var txt = _game.add.text(10, 10, "This looks better!", {
     fontSize: 12,
     fill: "#ffffff",
     stroke: "#1e1e1e",
@@ -61,14 +61,14 @@ GameState.prototype.create = function () {
 
   ///////////////////////// TOOLTIPS ///////////////////////////////////////////////////////
 
-  var tip1 = new Phasetips({
+  var tip1 = new Phasetips(_game, {
     targetObject: block1,
     context: "A cute bunny but with a lot of text, that needs to wrap!",
     strokeColor: 0xff0000,
     position: "right"
   });
 
-  var tip2 = new Phasetips({
+  var tip2 = new Phasetips(_game, {
     targetObject: block1,
     context: block2,
     strokeColor: 0xfec72c,
@@ -78,7 +78,7 @@ GameState.prototype.create = function () {
     padding: 20
   });
 
-  var tip3 = new Phasetips({
+  var tip3 = new Phasetips(_game, {
     targetObject: block1,
     context: "This is a custom tip with custom background, oh yeah!",
     position: "top",
@@ -87,7 +87,7 @@ GameState.prototype.create = function () {
     animation: "grow"
   });
 
-  var tip4 = new Phasetips({
+  var tip4 = new Phasetips(_game, {
     targetObject: block1,
     context: block4,
     position: "left"
@@ -95,7 +95,7 @@ GameState.prototype.create = function () {
 
   tip1.printOptions();
 
-  window.console.log(game, slider);
+  window.console.log(_game, slider);
 };
 
 
@@ -105,5 +105,5 @@ GameState.prototype.update = function () {
 
 };
 
-var game = new Phaser.Game(1024, 691, Phaser.CANVAS, 'game');
-game.state.add('game', GameState, true);
+var _game = new Phaser.Game(1024, 691, Phaser.CANVAS, 'game');
+_game.state.add('game', GameState, true);

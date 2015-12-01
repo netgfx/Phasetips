@@ -6,10 +6,11 @@
  *
  **/
 
-var Phasetips = function (options) {
+var Phasetips = function (localGame, options) {
 
     var _this = this;
     var _options = options || {};
+    var game = localGame || game; // it looks for a game object or falls back to the global one
 
     this.printOptions = function () {
         window.console.log(_options);
@@ -112,6 +113,16 @@ var Phasetips = function (options) {
             tooltipContent = new Phaser.Text(game, _padding / 2, _padding / 2, _content, _textStyle);
             tooltipContent.updateText();
             tooltipContent.update();
+            tooltipContent.x = _padding/2;
+            tooltipContent.y = _padding/2;
+            var bounds = tooltipContent.getBounds();
+           /* window.console.log(bounds);
+            var debug = game.add.graphics(bounds.width, bounds.height);
+            debug.x = _padding/2;
+            debug.y = _padding/2;
+            debug.beginFill(0xff0000, 0.6);
+            debug.drawRect(0, 0, bounds.width, bounds.height, 1);
+            window.console.log(debug.x)*/
         } else if (type === "object") {
             tooltipContent = _content;
         }
@@ -195,7 +206,8 @@ var Phasetips = function (options) {
         // add all to group
         mainGroup.add(tooltipBG);
         mainGroup.add(tooltipContent);
-
+        //if(debug)
+        //mainGroup.add(debug);
 
         // add event listener
         _object.inputEnabled = true;
