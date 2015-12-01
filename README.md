@@ -1,4 +1,4 @@
-# PhaseSlider
+# PhaseTips
 A tooltips UI component for Phaser.io Javascript library
 
 <h3>Initialize the tooltip anywhere in your game</h3>
