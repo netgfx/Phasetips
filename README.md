@@ -46,6 +46,14 @@ The game instance that we want the tooltips to appear to, such as "game"
     <li><strong>customBackground: </strong> If the tooltip will use a custom background (default: false)</li>
     <li><strong>position: </strong> The position of the tooltip based on the targetObject (default: top, options: top, bottom, left, right)</li>
     <li><strong>enableCursor: </strong> Enables the hand-cursor over the target object when hovered (default: false)</li>
+    <li><strong>textStyle: </strong> Declares styles for the simple text element (default: {
+            fontSize: 12,
+            fill: "#ffffff",
+            stroke: "#1e1e1e",
+            strokeThickness: 1,
+            wordWrap: true,
+            wordWrapWidth: 200
+        }</li>
 
 </ul>
 
