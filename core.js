@@ -7,6 +7,7 @@ var slider;
 GameState.prototype.preload = function () {
   this.load.image('bg', "http://i221.photobucket.com/albums/dd22/djmid71/bg1_zpsxrhh1f86.jpg");
   this.load.image("char", "assets/char1.png");
+  this.load.image("char-stroke", "assets/char1-stroke.png");
   this.load.image("char2", "assets/char2.png");
   this.load.image("customTip", "assets/customTip.png");
 
@@ -65,7 +66,13 @@ GameState.prototype.create = function () {
     targetObject: block1,
     context: "A cute bunny but with a lot of text, that needs to wrap!",
     strokeColor: 0xff0000,
-    position: "right"
+    position: "right",
+    onHoverCallback: function() {
+      block1.loadTexture("char-stroke");
+    },
+    onOutCallback: function() {
+      block1.loadTexture("char");
+    }
   });
 
   var tip2 = new Phasetips(_game, {

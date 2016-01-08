@@ -43,6 +43,10 @@ var Phasetips = function (localGame, options) {
             _this.mainGroup.visible = true;
             _this.mainGroup.alpha = 1;
         }
+
+        if(_options.onHoverCallback){
+            _options.onHoverCallback();
+        }
     };
 
     this.onHoverOut = function () {
@@ -57,6 +61,10 @@ var Phasetips = function (localGame, options) {
         }
         else {
             _this.mainGroup.alpha = 0;
+        }
+
+        if(_options.onOutCallback){
+            _options.onOutCallback();
         }
     };
 
@@ -92,11 +100,15 @@ var Phasetips = function (localGame, options) {
         var _object = _options.targetObject || game; // any object
         var _animationSpeedShow = _options.animationSpeedShow || 300;
         var _animationSpeedHide = _options.animationSpeedHide || 200;
+        var _onHoverCallback = _options.onHoverCallback || function() {};
+        var _onOutCallback = _options.onOutCallback || function() {};
 
         _options.animation = _animation;
         _options.animationDelay = _animationDelay;
         _options.animationSpeedShow = _animationSpeedShow;
         _options.animationSpeedHide = _animationSpeedHide;
+        _options.onHoverCallback = _onHoverCallback;
+        _options.onOutCallback = _onOutCallback;
 
         ////////////////////////////////////////////////////////////////////////////////////
         var tooltipBG;

@@ -54,6 +54,8 @@ The game instance that we want the tooltips to appear to, such as "game"
             wordWrap: true,
             wordWrapWidth: 200
         }</li>
+    <li><strong>onHoverCallback: </strong> Calls a function when hover occurs (default: fn)</li>
+    <li><strong>onOutCallback: </strong> Calls a function when hover ends (default: fn)</li>
 
 </ul>
 
