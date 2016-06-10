@@ -6,18 +6,18 @@
  *
  **/
 
-var Phasetips = function (localGame, options) {
+var Phasetips = function(localGame, options) {
 
     var _this = this;
     var _options = options || {};
     var game = localGame || game; // it looks for a game object or falls back to the global one
 
-    this.printOptions = function () {
+    this.printOptions = function() {
         window.console.log(_options);
     };
 
-    this.onHoverOver = function () {
-        if(_this.tweenObj) {
+    this.onHoverOver = function() {
+        if (_this.tweenObj) {
             _this.tweenObj.stop();
         }
         if (_options.animation === "fade") {
@@ -28,29 +28,28 @@ var Phasetips = function (localGame, options) {
 
         } else if (_options.animation === "grow") {
 
-            _this.mainGroup.pivot.setTo(_this.mainGroup.width/2,_this.mainGroup.height);
-            _this.mainGroup.pivot.setTo(_this.mainGroup.width/2,_this.mainGroup.height);
-            _this.mainGroup.x = _this.mainGroup.initialX + _this.mainGroup.width/2;
-            _this.mainGroup.y =  _this.mainGroup.initialY +_this.mainGroup.height;
+            _this.mainGroup.pivot.setTo(_this.mainGroup.width / 2, _this.mainGroup.height);
+            _this.mainGroup.pivot.setTo(_this.mainGroup.width / 2, _this.mainGroup.height);
+            _this.mainGroup.x = _this.mainGroup.initialX + _this.mainGroup.width / 2;
+            _this.mainGroup.y = _this.mainGroup.initialY + _this.mainGroup.height;
             _this.mainGroup.scale.setTo(0, 0);
             _this.mainGroup.alpha = 1;
             _this.tweenObj = game.add.tween(_this.mainGroup.scale).to({
                 x: 1,
                 y: 1
             }, _options.animationSpeedShow, Phaser.Easing.Linear.None, true, _options.animationDelay, 0, false);
-        }
-        else {
+        } else {
             _this.mainGroup.visible = true;
             _this.mainGroup.alpha = 1;
         }
 
-        if(_options.onHoverCallback){
+        if (_options.onHoverCallback) {
             _options.onHoverCallback();
         }
     };
 
-    this.onHoverOut = function () {
-        if(_this.tweenObj) {
+    this.onHoverOut = function() {
+        if (_this.tweenObj) {
             _this.tweenObj.stop();
         }
 
@@ -58,17 +57,16 @@ var Phasetips = function (localGame, options) {
             _this.tweenObj = game.add.tween(_this.mainGroup).to({
                 alpha: 0
             }, _options.animationSpeedHide, Phaser.Easing.Linear.None, true, 0, 0, false);
-        }
-        else {
+        } else {
             _this.mainGroup.alpha = 0;
         }
 
-        if(_options.onOutCallback){
+        if (_options.onOutCallback) {
             _options.onOutCallback();
         }
     };
 
-    this.createTooltips = function () {
+    this.createTooltips = function() {
 
         // layout
         var _width = _options.width || "auto";
@@ -83,6 +81,7 @@ var Phasetips = function (localGame, options) {
         var _customArrow = _options.customArrow || false;
         var _enableCursor = _options.enableCursor || false;
         var _customBackground = _options.customBackground || false;
+        var _fixedToCamera = _options.fixedToCamera || false;
         var _textStyle = _options.textStyle || {
             fontSize: 12,
             fill: "#ffffff",
@@ -125,16 +124,16 @@ var Phasetips = function (localGame, options) {
             tooltipContent = new Phaser.Text(game, _padding / 2, _padding / 2, _content, _textStyle);
             tooltipContent.updateText();
             tooltipContent.update();
-            tooltipContent.x = _padding/2;
-            tooltipContent.y = _padding/2;
+            tooltipContent.x = _padding / 2;
+            tooltipContent.y = _padding / 2;
             var bounds = tooltipContent.getBounds();
-           /* window.console.log(bounds);
-            var debug = game.add.graphics(bounds.width, bounds.height);
-            debug.x = _padding/2;
-            debug.y = _padding/2;
-            debug.beginFill(0xff0000, 0.6);
-            debug.drawRect(0, 0, bounds.width, bounds.height, 1);
-            window.console.log(debug.x)*/
+            /* window.console.log(bounds);
+             var debug = game.add.graphics(bounds.width, bounds.height);
+             debug.x = _padding/2;
+             debug.y = _padding/2;
+             debug.beginFill(0xff0000, 0.6);
+             debug.drawRect(0, 0, bounds.width, bounds.height, 1);
+             window.console.log(debug.x)*/
         } else if (type === "object") {
             tooltipContent = _content;
         }
@@ -143,17 +142,15 @@ var Phasetips = function (localGame, options) {
             mainGroup.width = _width;
             mainGroup.height = _height;
         } else {
-            if(_customBackground === false){
+            if (_customBackground === false) {
                 mainGroup.width = tooltipContent.width + _padding;
                 mainGroup.height = tooltipContent.height + _padding;
-            }
-            else {
+            } else {
 
-                if(_customBackground.width > tooltipContent.width){
+                if (_customBackground.width > tooltipContent.width) {
                     mainGroup.width = _customBackground.width;
                     mainGroup.height = _customBackground.height;
-                }
-                else {
+                } else {
                     mainGroup.width = tooltipContent.width;
                     mainGroup.height = tooltipContent.height;
                 }
@@ -167,7 +164,10 @@ var Phasetips = function (localGame, options) {
         if (_x !== "auto" && _y !== "auto") {
             mainGroup.x = _x;
             mainGroup.y = _y;
-
+            if (_fixedToCamera == true) {
+                mainGroup.fixedToCamera = true;
+                mainGroup.cameraOffset.setTo(mainGroup.x, mainGroup.y);
+            }
         } else {
 
             // sanity check
@@ -189,10 +189,15 @@ var Phasetips = function (localGame, options) {
                 mainGroup.y = Math.round(_object.y + _object.height + (_positionOffset));
             } else if (_position === "left") {
                 mainGroup.x = Math.round(_object.x - (_positionOffset + _object.width));
-                mainGroup.y = Math.round((_object.y + _object.height / 2) - (mainGroup._height/2));
+                mainGroup.y = Math.round((_object.y + _object.height / 2) - (mainGroup._height / 2));
             } else if (_position === "right") {
                 mainGroup.x = Math.round(_object.x + _object.width + _positionOffset);
-                mainGroup.y = Math.round((_object.y + _object.height / 2) - (mainGroup._height/2));
+                mainGroup.y = Math.round((_object.y + _object.height / 2) - (mainGroup._height / 2));
+            }
+
+            if (_fixedToCamera == true) {
+                mainGroup.fixedToCamera = true;
+                mainGroup.cameraOffset.setTo(mainGroup.x, mainGroup.y);
             }
         }
 
@@ -223,7 +228,7 @@ var Phasetips = function (localGame, options) {
 
         // add event listener
         _object.inputEnabled = true;
-        if(_enableCursor){
+        if (_enableCursor) {
             _object.input.useHandCursor = true;
         }
         _object.events.onInputOver.add(_this.onHoverOver, this);
@@ -233,22 +238,22 @@ var Phasetips = function (localGame, options) {
     this.createTooltips();
 
     return {
-        printOptions: function () {
+        printOptions: function() {
             _this.printOptions();
         },
-        updatePosition: function (x, y) {
+        updatePosition: function(x, y) {
             _this.mainGroup.x = x;
             _this.mainGroup.y = y;
         },
-        destroy: function () {
+        destroy: function() {
             _this.mainGroup.removeChildren();
             _this.mainGroup.destroy();
         },
-        hideTooltip: function () {
+        hideTooltip: function() {
             _this.mainGroup.visible = false;
             _this.mainGroup.alpha = 0;
         },
-        showTooltip: function () {
+        showTooltip: function() {
             _this.mainGroup.visible = true;
             _this.mainGroup.alpha = 1;
         }
