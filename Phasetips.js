@@ -44,7 +44,7 @@ var Phasetips = function(localGame, options) {
         }
 
         if (_options.onHoverCallback) {
-            _options.onHoverCallback();
+            _options.onHoverCallback(_this);
         }
     };
 
@@ -62,7 +62,7 @@ var Phasetips = function(localGame, options) {
         }
 
         if (_options.onOutCallback) {
-            _options.onOutCallback();
+            _options.onOutCallback(_this);
         }
     };
 
