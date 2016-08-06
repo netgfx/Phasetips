@@ -52,7 +52,8 @@ The game instance that we want the tooltips to appear to, such as "game"
             stroke: "#1e1e1e",
             strokeThickness: 1,
             wordWrap: true,
-            wordWrapWidth: 200
+            wordWrapWidth: 200,
+            lineSpacing: -2
         }</li>
     <li><strong>onHoverCallback: </strong> Calls a function when hover occurs (default: fn)</li>
     <li><strong>onOutCallback: </strong> Calls a function when hover ends (default: fn)</li>
