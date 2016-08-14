@@ -44,7 +44,7 @@ var Phasetips = function(localGame, options) {
         }
 
         if (_options.onHoverCallback) {
-            _options.onHoverCallback();
+            _options.onHoverCallback(_this);
         }
     };
 
@@ -62,7 +62,7 @@ var Phasetips = function(localGame, options) {
         }
 
         if (_options.onOutCallback) {
-            _options.onOutCallback();
+            _options.onOutCallback(_this);
         }
     };
 
@@ -122,6 +122,7 @@ var Phasetips = function(localGame, options) {
 
         if (type === "string") {
             tooltipContent = new Phaser.Text(game, _padding / 2, _padding / 2, _content, _textStyle);
+            tooltipContent.lineSpacing = _textStyle.lineSpacing || 0;
             tooltipContent.updateText();
             tooltipContent.update();
             tooltipContent.x = _padding / 2;
