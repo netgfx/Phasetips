@@ -1,0 +1,19 @@
+{
+  "name": "phasetips",
+  "version": "1.0.0",
+  "description": "A tooltips plugin for Phaser.io game framework",
+  "main": "Phasetips.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/netgfx/Phasetips.git"
+  },
+  "author": "netgfx",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/netgfx/Phasetips/issues"
+  },
+  "homepage": "https://github.com/netgfx/Phasetips#readme"
+}
