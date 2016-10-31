@@ -263,3 +263,7 @@ var Phasetips = function(localGame, options) {
         }
     };
 };
+
+if (typeof module === "object" && typeof module.exports === "object") {
+    module.exports = Phasetips;
+}
