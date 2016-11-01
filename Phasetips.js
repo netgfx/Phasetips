@@ -161,49 +161,65 @@ var Phasetips = function(localGame, options) {
         // Making it invisible
         mainGroup.alpha = 0;
         //////////////////////
-
-        if (_x !== "auto" && _y !== "auto") {
-            mainGroup.x = _x;
-            mainGroup.y = _y;
-            if (_fixedToCamera == true) {
-                mainGroup.fixedToCamera = true;
-                mainGroup.cameraOffset.setTo(mainGroup.x, mainGroup.y);
-            }
-        } else {
-
-            // sanity check
-            if (_position === "bottom") {
-                if (Math.round(_object.y + _object.height + (_positionOffset)) + mainGroup._height > game.height) {
-                    _position = "top";
+        function updatePosition() {
+            let _origPosition = _position;
+            if (_x !== "auto" && _y !== "auto") {
+                mainGroup.x = _x;
+                mainGroup.y = _y;
+                if (_fixedToCamera == true) {
+                    mainGroup.fixedToCamera = true;
+                    mainGroup.cameraOffset.setTo(mainGroup.x, mainGroup.y);
                 }
-            } else if (_position === "top") {
-                if (Math.round(_object.y - (_positionOffset + mainGroup._height)) < 0) {
-                    _position = "bottom";
+            } else {
+                var worldPos = _options.targetObject ? _options.targetObject.world : game.world;
+                objectX = worldPos.x || _options.targetObject.x;
+                objectY = worldPos.y || _options.targetObject.y;
+
+                // sanity check
+                if (_position === "bottom") {
+                    if (Math.round(objectY + _object.height + (_positionOffset)) + mainGroup._height > game.height) {
+                        _position = "top";
+                    }
+                } else if (_position === "top") {
+                    if (Math.round(objectY - (_positionOffset + mainGroup._height)) < 0) {
+                        _position = "bottom";
+                    }
+                }
+
+                if (_position === "top") {
+                    mainGroup.x = Math.round(objectX + ((_object.width / 2) - (mainGroup._width / 2)));
+                    mainGroup.y = Math.round(objectY - (_positionOffset + mainGroup._height));
+                } else if (_position === "bottom") {
+                    mainGroup.x = Math.round(objectX + ((_object.width / 2) - (mainGroup._width) / 2));
+                    mainGroup.y = Math.round(objectY + _object.height + (_positionOffset));
+                } else if (_position === "left") {
+                    mainGroup.x = Math.round(objectX - (_positionOffset + mainGroup._width));
+                    mainGroup.y = Math.round((objectY + _object.height / 2) - (mainGroup._height / 2));
+                    // mainGroup.scale.x = -1;
+                } else if (_position === "right") {
+                    mainGroup.x = Math.round(objectX + _object.width + _positionOffset);
+                    mainGroup.y = Math.round((objectY + _object.height / 2) - (mainGroup._height / 2));
+                }
+
+                if (_fixedToCamera == true) {
+                    mainGroup.fixedToCamera = true;
+                    mainGroup.cameraOffset.setTo(mainGroup.x, mainGroup.y);
                 }
             }
 
-            if (_position === "top") {
-                mainGroup.x = Math.round(_object.x + ((_object.width / 2) - (mainGroup._width / 2)));
-                mainGroup.y = Math.round(_object.y - (_positionOffset + mainGroup._height));
-            } else if (_position === "bottom") {
-                mainGroup.x = Math.round(_object.x + ((_object.width / 2) - (mainGroup._width) / 2));
-                mainGroup.y = Math.round(_object.y + _object.height + (_positionOffset));
-            } else if (_position === "left") {
-                mainGroup.x = Math.round(_object.x - (_positionOffset + _object.width));
-                mainGroup.y = Math.round((_object.y + _object.height / 2) - (mainGroup._height / 2));
-            } else if (_position === "right") {
-                mainGroup.x = Math.round(_object.x + _object.width + _positionOffset);
-                mainGroup.y = Math.round((_object.y + _object.height / 2) - (mainGroup._height / 2));
-            }
+            // clone world position
+            mainGroup.initialWorldX = worldPos.x;
+            mainGroup.initialWorldY = worldPos.y;
 
-            if (_fixedToCamera == true) {
-                mainGroup.fixedToCamera = true;
-                mainGroup.cameraOffset.setTo(mainGroup.x, mainGroup.y);
-            }
+            mainGroup.initialX = mainGroup.x;
+            mainGroup.initialY = mainGroup.y;
+
+            // if the world position changes, there might be space for the tooltip
+            // to be in the original position.
+            _position = _origPosition;
         }
 
-        mainGroup.initialX = mainGroup.x;
-        mainGroup.initialY = mainGroup.y;
+        updatePosition();
 
         ///////////////////////////////////////////////////////////////////////////////////
 
@@ -237,6 +253,12 @@ var Phasetips = function(localGame, options) {
         _object.events.onInputOut.add(_this.onHoverOut, this);
         _object.events.onInputUp.add(_this.onHoverOut, this);
 
+        mainGroup.update = function() {
+            var worldPos = _options.targetObject ? _options.targetObject.world : game.world;
+            if (worldPos.x !== mainGroup.initialWorldX) {
+                updatePosition();
+            }
+        }
     };
 
     this.createTooltips();

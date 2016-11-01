@@ -41,6 +41,7 @@ The game instance that we want the tooltips to appear to, such as "game"
   <li><strong>animationDelay: </strong> The animation delay before showing the tooltip (default: 0)</li>
 	<li><strong>padding: </strong> The padding that the context keeps from the tooltip bounds (default: 20)</li>
     <li><strong>positionOffset: </strong> The position offset that the tooltip keeps from the targetObject (default: 20)</li>
+    <li><strong>backgroundColor: </strong> The color of the background (default: 0x000000)</li>
     <li><strong>strokeColor: </strong> The color of tooltip stroke (default: 0xffffff)</li>
     <li><strong>strokeWeight: </strong> The line weight of the tooltip stroke (default: 2)</li>
     <li><strong>customBackground: </strong> If the tooltip will use a custom background (default: false)</li>
@@ -58,7 +59,6 @@ The game instance that we want the tooltips to appear to, such as "game"
     <li><strong>onHoverCallback: </strong> Calls a function when hover occurs (default: fn)</li>
     <li><strong>onOutCallback: </strong> Calls a function when hover ends (default: fn)</li>
     <li><strong>fixedToCamera: </strong> Pins the tooltip on the camera and moves with it (x,y are now camera offset) (default: false)</li>
-
 </ul>
 
 <strong>API Functions</strong>
