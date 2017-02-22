@@ -120,8 +120,8 @@ var Phasetips = function(localGame, options) {
         // add content first to calculate width & height in case of auto
         var type = typeof _content;
 
-        if (type === "string") {
-            tooltipContent = new Phaser.Text(game, _padding / 2, _padding / 2, _content, _textStyle);
+        if (type === "string" || type === "number") {
+            tooltipContent = new Phaser.Text(game, _padding / 2, _padding / 2, String(_content), _textStyle);
             tooltipContent.lineSpacing = _textStyle.lineSpacing || 0;
             tooltipContent.updateText();
             tooltipContent.update();
