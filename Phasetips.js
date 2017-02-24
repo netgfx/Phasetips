@@ -162,7 +162,7 @@ var Phasetips = function(localGame, options) {
         mainGroup.alpha = 0;
         //////////////////////
         function updatePosition() {
-            let _origPosition = _position;
+            var _origPosition = _position;
             if (_x !== "auto" && _y !== "auto") {
                 mainGroup.x = _x;
                 mainGroup.y = _y;
