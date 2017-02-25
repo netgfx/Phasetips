@@ -14,7 +14,7 @@ Please see the source code at : https://github.com/BeFiveINFO/Phasetips/blob/mas
 Example:
 
 ```
-this.tooltip_enter_name = new Phasetips(Game, {
+var tooltip_enter_name = new Phasetips(Game, {
 	targetObject: Register.spriteInstances.name_input_text_field_backpanel,
 	context: "Please enter your nickname to start game.",
 	fontSize: "24px Josefin Sans",
@@ -27,6 +27,14 @@ this.tooltip_enter_name = new Phasetips(Game, {
 	roundedCorderRadius: 10,
 	position: "left",
 	alwaysOn: true,
+});
+```
+
+To show / hide 
+```
+tooltip_enter_name.showTooltip(); 
+
+tooltip_enter_name.hideTooltip();
 ```
 
 Original: https://github.com/netgfx/Phasetips
