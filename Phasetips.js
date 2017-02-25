@@ -82,10 +82,14 @@ var Phasetips = function(localGame, options) {
         var _enableCursor = _options.enableCursor || false;
         var _customBackground = _options.customBackground || false;
         var _fixedToCamera = _options.fixedToCamera || false;
+        var _roundedCorderRadius = _options.roundedCorderRadius || 1;
+        var _fontSize = _options.fontSize || 12;
+        var _fontFill = _options.fontFill || "#FFFFFF";
+        var _fontStroke = _options.fontStroke || "#232323";
         var _textStyle = _options.textStyle || {
-            fontSize: 12,
-            fill: "#ffffff",
-            stroke: "#1e1e1e",
+            fontSize: _fontSize,
+            fill: _fontFill,
+            stroke: _fontStroke,
             strokeThickness: 1,
             wordWrap: true,
             wordWrapWidth: 200
@@ -101,6 +105,8 @@ var Phasetips = function(localGame, options) {
         var _animationSpeedHide = _options.animationSpeedHide || 200;
         var _onHoverCallback = _options.onHoverCallback || function() {};
         var _onOutCallback = _options.onOutCallback || function() {};
+
+        var _alwaysOn = _options.alwaysOn || false;
 
         _options.animation = _animation;
         _options.animationDelay = _animationDelay;
@@ -232,7 +238,7 @@ var Phasetips = function(localGame, options) {
             tooltipBG.x = 0;
             tooltipBG.y = 0;
             tooltipBG.lineStyle(_strokeWeight, _strokeColor, 1);
-            tooltipBG.drawRect(0, 0, tooltipContent.width + _padding, tooltipContent.height + _padding, 1);
+            tooltipBG.drawRoundedRect(0, 0, tooltipContent.width + _padding, tooltipContent.height + _padding, _roundedCorderRadius);
         } else {
             tooltipBG = _customBackground;
         }
@@ -248,10 +254,14 @@ var Phasetips = function(localGame, options) {
         if (_enableCursor) {
             _object.input.useHandCursor = true;
         }
-        _object.events.onInputOver.add(_this.onHoverOver, this);
-        _object.events.onInputDown.add(_this.onHoverOver, this);
-        _object.events.onInputOut.add(_this.onHoverOut, this);
-        _object.events.onInputUp.add(_this.onHoverOut, this);
+
+        if(_this.alwaysOn === false) {
+            _object.events.onInputOver.add(_this.onHoverOver, this);
+            _object.events.onInputDown.add(_this.onHoverOver, this);
+            _object.events.onInputOut.add(_this.onHoverOut, this);
+            _object.events.onInputUp.add(_this.onHoverOut, this);
+            return;
+        }
 
         mainGroup.update = function() {
             var worldPos = _options.targetObject ? _options.targetObject.world : game.world;
