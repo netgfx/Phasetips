@@ -9,6 +9,8 @@ Added options:
   - fontFill
 - roundedCorderRadius (always show tips. control with methods to show and hide)
 
+Please see the source code at : https://github.com/BeFiveINFO/Phasetips/blob/master/Phasetips.js
+
 Example:
 
 ```
