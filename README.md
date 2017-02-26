@@ -85,17 +85,20 @@ It is also possible to define individual text style options.
 Set an object with respective properties to define all at once.
 
 <ul>
-    <li><strong>textStyle: </strong> Declares styles for the simple text element (default: {
-            font: '',
-            fontSize: 12,
-            fill: "#ffffff",
-            stroke: "#1e1e1e",
-            strokeThickness: 1,
-            wordWrap: true,
-            wordWrapWidth: 200,
-            lineSpacing: -2
-        }</li>
+    <li><strong>textStyle: </strong> Declares styles for the simple text element. Default:</li>
 </ul>
+```
+{
+    font: '',
+    fontSize: 12,
+    fill: "#ffffff",
+    stroke: "#1e1e1e",
+    strokeThickness: 1,
+    wordWrap: true,
+    wordWrapWidth: 200,
+    lineSpacing: -2
+}
+```
 
 <strong>Callback Options:</strong>
 
