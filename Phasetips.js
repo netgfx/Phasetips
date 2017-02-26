@@ -87,8 +87,8 @@ var Phasetips = function(localGame, options) {
         // Option for font style
         var _font = _options.font || '';
         var _fontSize = _options.fontSize || 12;
-        var _fontFill = _options.fontFill || "#FFFFFF";
-        var _fontStroke = _options.fontStroke || "#232323";
+        var _fontFill = _options.fontFill || "#ffffff";
+        var _fontStroke = _options.fontStroke || "#1e1e1e";
         var _fontStrokeThickness = _options.fontStrokeThickness || 1;
         var _fontWordWrap = _options.fontWordWrap || true;
         var _fontWordWrapWidth = _options.fontWordWrapWidth || 200;
