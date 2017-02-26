@@ -85,6 +85,7 @@ var Phasetips = function(localGame, options) {
         // Option for rounded corners
         var _roundedCornersRadius = _options.roundedCornersRadius || 1;
         // Option for font style
+        var _font = _options.font || '';
         var _fontSize = _options.fontSize || 12;
         var _fontFill = _options.fontFill || "#FFFFFF";
         var _fontStroke = _options.fontStroke || "#232323";
@@ -93,6 +94,7 @@ var Phasetips = function(localGame, options) {
         var _fontWordWrapWidth = _options.fontWordWrapWidth || 200;
         // Text style properties
         var _textStyle = _options.textStyle || {
+            font: _font,
             fontSize: _fontSize,
             fill: _fontFill,
             stroke: _fontStroke,
