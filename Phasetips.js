@@ -248,8 +248,8 @@ var Phasetips = function(localGame, options) {
             tooltipBG.y = 0;
             tooltipBG.lineStyle(_strokeWeight, _strokeColor, 1);
 
-            // if drawRoundedRect method is not available or roundedCornersRadius option is set to 1, use drawRect
-            if(_roundedCornersRadius == 1 || !tooltipBG.drawRoundedRect) {
+            // if roundedCornersRadius option is set to 1, drawRect will be used.
+            if( _roundedCornersRadius == 1 ) {
                 tooltipBG.drawRect(0, 0, tooltipContent.width + _padding, tooltipContent.height + _padding, 1);
             } else {
                 tooltipBG.drawRoundedRect(0, 0, tooltipContent.width + _padding, tooltipContent.height + _padding, _roundedCornersRadius);
