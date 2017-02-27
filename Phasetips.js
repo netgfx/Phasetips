@@ -270,12 +270,11 @@ var Phasetips = function(localGame, options) {
             _object.input.useHandCursor = true;
         }
 
-        if(_this.alwaysOn === false) {
+        if(_this.alwaysOn !== true) {
             _object.events.onInputOver.add(_this.onHoverOver, this);
             _object.events.onInputDown.add(_this.onHoverOver, this);
             _object.events.onInputOut.add(_this.onHoverOut, this);
             _object.events.onInputUp.add(_this.onHoverOut, this);
-            return;
         }
 
         mainGroup.update = function() {
