@@ -35,6 +35,7 @@ The game instance that we want the tooltips to appear to, such as "game"
   <li><strong>x</strong> The x position of the tooltip (default: auto based on position)</li>
 	<li><strong>y</strong> The y position of the tooltip (default: auto based on position)</li>
 	<li><strong>targetObject</strong> The actual object in which the tooltip will appear on hover (default: Game)</li>
+	<li><strong>enableCursor: </strong> Enables the hand-cursor over the target object when hovered (default: false)</li>
 	<li><strong>alwaysOn</strong> If alwaysOn option is set to true, the tooltip will neither fade in nor out upon hover. Use simulateOnHoverOver, simulateOnHoverOut, hideTooltip or showTooltip API functions to manually control the visibility. (Default: false)</li>
 </ul>
 
@@ -59,11 +60,11 @@ The game instance that we want the tooltips to appear to, such as "game"
 
 <ul>
     <li><strong>backgroundColor: </strong> The color of the background (default: 0x000000)</li>
+    <li><strong>roundedCornersRadius: </strong> Radius of the rectangle corners. Set to 1 to use a regular rectangle. (default: 1)</li>
     <li><strong>strokeColor: </strong> The color of tooltip stroke (default: 0xffffff)</li>
     <li><strong>strokeWeight: </strong> The line weight of the tooltip stroke (default: 2)</li>
     <li><strong>customBackground: </strong> If the tooltip will use a custom background (default: false)</li>
     <li><strong>position: </strong> The position of the tooltip based on the targetObject (default: top, options: top, bottom, left, right)</li>
-    <li><strong>enableCursor: </strong> Enables the hand-cursor over the target object when hovered (default: false)</li>
 </ul>
 
 <strong>Font Options:</strong>
