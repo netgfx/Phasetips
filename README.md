@@ -39,7 +39,7 @@ The game instance that we want the tooltips to appear to, such as "game"
 	<li><strong>alwaysOn</strong> If alwaysOn option is set to true, the tooltip will neither fade in nor out upon hover. Use simulateOnHoverOver, simulateOnHoverOut, hideTooltip or showTooltip API functions to manually control the visibility. (Default: false)</li>
 </ul>
 
-<strong>Annimation Options:</strong>
+<strong>Animation Options:</strong>
 
 <ul>
   <li><strong>animation: </strong> The animation effect (default: fade, options:fade, grow, none)</li>
