@@ -32,11 +32,11 @@ The game instance that we want the tooltips to appear to, such as "game"
 	<li><strong>context:</strong> The information inside the tooltip, can be String, Number, Sprite, Phaser.Text, Phaser.BitmapText, Phaser.Group, Phaser.Image</li>
 	<li><strong>width:</strong> The width of the tooltip (default: auto)</li>
   <li><strong>height:</strong> The height of the tooltip (default: auto)</li>
-  <li><strong>x</strong> The x position of the tooltip (default: auto based on position)</li>
-	<li><strong>y</strong> The y position of the tooltip (default: auto based on position)</li>
-	<li><strong>targetObject</strong> The actual object in which the tooltip will appear on hover (default: Game)</li>
+  <li><strong>x:</strong> The x position of the tooltip (default: auto based on position)</li>
+	<li><strong>y:</strong> The y position of the tooltip (default: auto based on position)</li>
+	<li><strong>targetObject:</strong> The actual object in which the tooltip will appear on hover (default: Game)</li>
 	<li><strong>enableCursor: </strong> Enables the hand-cursor over the target object when hovered (default: false)</li>
-	<li><strong>alwaysOn</strong> If alwaysOn option is set to true, the tooltip will neither fade in nor out upon hover. Use simulateOnHoverOver, simulateOnHoverOut, hideTooltip or showTooltip API functions to manually control the visibility. (Default: false)</li>
+	<li><strong>alwaysOn:</strong> If alwaysOn option is set to true, the tooltip will neither fade in nor out upon hover. Use simulateOnHoverOver, simulateOnHoverOut, hideTooltip or showTooltip API functions to manually control the visibility. (Default: false)</li>
 </ul>
 
 <strong>Animation Options:</strong>
