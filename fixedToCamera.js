@@ -103,6 +103,17 @@ GameState.prototype.create = function () {
     position: "left"
   });
 
+  var tip5 = new Phasetips(_game, {
+    targetObject: block1,
+    positionOffset: 180,
+    context: "This is a custom tip with rounded corners!",
+    roundedCornersRadius: 10,
+    strokeWeight: 5,
+    position: "left",
+    fontSize: 14
+  });
+
+
   tip1.printOptions();
 
   window.console.log(_game, slider);
