@@ -37,7 +37,7 @@ The game instance that we want the tooltips to appear to, such as "game"
     <li><strong>position: </strong> The position of the tooltip based on the targetObject (default: top, options: top, bottom, left, right)</li>
     <li><strong>targetObject:</strong> The actual object in which the tooltip will appear on hover (default: Game)</li>
     <li><strong>enableCursor: </strong> Enables the hand-cursor over the target object when hovered (default: false)</li>
-    <li><strong>alwaysOn:</strong> If alwaysOn option is set to true, the tooltip will neither fade in nor out upon hover. Use simulateOnHoverOver, simulateOnHoverOut, hideTooltip or showTooltip API functions to manually control the visibility. (Default: false)</li>
+    <li><strong>disableInputEvents:</strong> If disableInputEvents option is set to true, the tooltip will not add will not add input events. Use simulateOnHoverOver, simulateOnHoverOut, hideTooltip or showTooltip API functions to manually control the visibility. (Default: false)</li>
 </ul>
 
 <strong>Animation Options:</strong>
