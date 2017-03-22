@@ -90,6 +90,7 @@ Set an object with respective properties to define all at once.
 <ul>
     <li><strong>textStyle: </strong> Declares styles for the simple text element. Individual font options above are overridden if the textStyle option is set. Default:</li>
 </ul>
+
 ```
 {
     font: '',
