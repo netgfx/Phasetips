@@ -178,6 +178,7 @@ var Phasetips = function(localGame, options) {
         //////////////////////
         function updatePosition() {
             var _origPosition = _position;
+            var worldPos = _options.targetObject ? _options.targetObject.world : game.world;
             if (_x !== "auto" && _y !== "auto") {
                 mainGroup.x = _x;
                 mainGroup.y = _y;
@@ -186,7 +187,6 @@ var Phasetips = function(localGame, options) {
                     mainGroup.cameraOffset.setTo(mainGroup.x, mainGroup.y);
                 }
             } else {
-                var worldPos = _options.targetObject ? _options.targetObject.world : game.world;
                 objectX = worldPos.x || _options.targetObject.x;
                 objectY = worldPos.y || _options.targetObject.y;
 
