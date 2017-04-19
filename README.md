@@ -2,10 +2,12 @@
 A tooltips UI component for Phaser.io Javascript library
 
 <h3>Initialize the tooltip anywhere in your game</h3>
+
 ```
 var myTooltip = new Phasetips(gameInstance, options);
 ```
-pass necesery options like: context (the object that launches the tooltip)
+
+pass necesery options like: `context` (the object that launches the tooltip)
 
 ```
 new Phasetips(gameInstance, {
@@ -88,6 +90,7 @@ Set an object with respective properties to define all at once.
 <ul>
     <li><strong>textStyle: </strong> Declares styles for the simple text element. Individual font options above are overridden if the textStyle option is set. Default:</li>
 </ul>
+
 ```
 {
     font: '',
