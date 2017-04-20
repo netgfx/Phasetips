@@ -179,6 +179,7 @@ var Phasetips = function(localGame, options) {
         function updatePosition() {
             var _origPosition = _position;
             if (_x !== "auto" && _y !== "auto") {
+                var worldPos = _options.targetObject ? _options.targetObject.world : game.world;
                 mainGroup.x = _x;
                 mainGroup.y = _y;
                 if (_fixedToCamera == true) {
@@ -270,7 +271,7 @@ var Phasetips = function(localGame, options) {
             _object.input.useHandCursor = true;
         }
 
-        if(_this.alwaysOn !== true) {
+        if(_this.alwaysOn !== true && _object.events !== undefined) {
             _object.events.onInputOver.add(_this.onHoverOver, this);
             _object.events.onInputDown.add(_this.onHoverOver, this);
             _object.events.onInputOut.add(_this.onHoverOut, this);

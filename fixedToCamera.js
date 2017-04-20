@@ -78,6 +78,22 @@ GameState.prototype.create = function () {
     }
   });
 
+  var testtip = new Phasetips(_game, {
+      context: "Please enter your nickname to start game.",
+      font: "Josefin Sans",
+      fontSize: 24,
+      width: 180,
+      fontStroke: "#f45212",
+      fontFill: "#f8ce18",
+      backgroundColor: 0xf45212,
+      strokeColor: 0xf8ce18,
+      strokeWeight: 5,
+      roundedCornersRadius: 10,
+      x: 100,
+      y: 100,
+      disableInputEvents: true,
+    });
+
   var tip2 = new Phasetips(_game, {
     targetObject: block1,
     context: block2,
