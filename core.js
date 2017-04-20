@@ -89,6 +89,7 @@ GameState.prototype.create = function () {
       x: 100,
       y: 100,
       disableInputEvents: true,
+      alwaysOn: false
     });
 
   var tip2 = new Phasetips(_game, {

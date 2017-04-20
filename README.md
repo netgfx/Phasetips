@@ -67,6 +67,7 @@ The game instance that we want the tooltips to appear to, such as "game"
     <li><strong>strokeColor: </strong> The color of tooltip stroke (default: 0xffffff)</li>
     <li><strong>strokeWeight: </strong> The line weight of the tooltip stroke (default: 2)</li>
     <li><strong>customBackground: </strong> If the tooltip will use a custom background (default: false)</li>
+    <li><strong>initialOn: </strong> If the tooltip will visible when it first appears</li>
 </ul>
 
 <strong>Font Options:</strong>
