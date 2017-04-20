@@ -2,10 +2,12 @@
 A tooltips UI component for Phaser.io Javascript library
 
 <h3>Initialize the tooltip anywhere in your game</h3>
+
 ```
 var myTooltip = new Phasetips(gameInstance, options);
 ```
-pass necesery options like: context (the object that launches the tooltip)
+
+pass necesery options like: `context` (the object that launches the tooltip)
 
 ```
 new Phasetips(gameInstance, {
@@ -37,7 +39,7 @@ The game instance that we want the tooltips to appear to, such as "game"
     <li><strong>position: </strong> The position of the tooltip based on the targetObject (default: top, options: top, bottom, left, right)</li>
     <li><strong>targetObject:</strong> The actual object in which the tooltip will appear on hover (default: Game)</li>
     <li><strong>enableCursor: </strong> Enables the hand-cursor over the target object when hovered (default: false)</li>
-    <li><strong>alwaysOn:</strong> If alwaysOn option is set to true, the tooltip will neither fade in nor out upon hover. Use simulateOnHoverOver, simulateOnHoverOut, hideTooltip or showTooltip API functions to manually control the visibility. (Default: false)</li>
+    <li><strong>disableInputEvents:</strong> If disableInputEvents option is set to true, the tooltip will not add will not add input events. Use simulateOnHoverOver, simulateOnHoverOut, hideTooltip or showTooltip API functions to manually control the visibility. (Default: false)</li>
 </ul>
 
 <strong>Animation Options:</strong>
@@ -88,6 +90,7 @@ Set an object with respective properties to define all at once.
 <ul>
     <li><strong>textStyle: </strong> Declares styles for the simple text element. Individual font options above are overridden if the textStyle option is set. Default:</li>
 </ul>
+
 ```
 {
     font: '',

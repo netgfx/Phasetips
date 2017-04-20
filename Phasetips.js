@@ -114,8 +114,9 @@ var Phasetips = function(localGame, options) {
         var _onHoverCallback = _options.onHoverCallback || function() {};
         var _onOutCallback = _options.onOutCallback || function() {};
         // If alwaysOn option is set to true, the tooltip will not fade in or out upon hover.
+        // If disableInputEvents option is set to true, PHASETIPS will not add input events.
         // Use simulateOnHoverOver, simulateOnHoverOut, hideTooltip or showTooltip methods to manually control the visibility.
-        var _alwaysOn = _options.alwaysOn || false;
+        var _disableInputEvents = _options.disableInputEvents || false;
 
         _options.animation = _animation;
         _options.animationDelay = _animationDelay;
@@ -266,12 +267,12 @@ var Phasetips = function(localGame, options) {
         //mainGroup.add(debug);
 
         // add event listener
-        _object.inputEnabled = true;
-        if (_enableCursor) {
-            _object.input.useHandCursor = true;
-        }
-
-        if(_this.alwaysOn !== true && _object.events !== undefined) {
+        // if "disableInputEvents" option is set to true, the followings are ignored.
+        if(_disableInputEvents !== true) {
+            _object.inputEnabled = true;
+            if (_enableCursor) {
+                _object.input.useHandCursor = true;
+            }
             _object.events.onInputOver.add(_this.onHoverOver, this);
             _object.events.onInputDown.add(_this.onHoverOver, this);
             _object.events.onInputOut.add(_this.onHoverOut, this);
