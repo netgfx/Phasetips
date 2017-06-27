@@ -71,8 +71,8 @@ var Phasetips = function(localGame, options) {
         // layout
         var _width = _options.width || "auto";
         var _height = _options.height || "auto";
-        var _x = _options.x || "auto";
-        var _y = _options.y || "auto";
+        var _x = _options.x === undefined ? "auto" : _options.x;
+        var _y = _options.y === undefined ? "auto" : _options.y;
         var _padding = _options.padding === undefined ? 20 : _options.padding;
         var _positionOffset = _options.positionOffset === undefined ? 20 : _options.positionOffset;
         var _bgColor = _options.backgroundColor || 0x000000;
