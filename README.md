@@ -19,7 +19,7 @@ new Phasetips(gameInstance, {
 
 <hr>
 
-<img src="http://i221.photobucket.com/albums/dd22/djmid71/phasetips_zpsjtzerwxx.gif"/>
+<img src="https://netgfx.com/trunk/randomPICS/phasetips_zpsjtzerwxx.gif"/>
 
 <strong>View example: <a href="http://www.netgfx.com/trunk/games/tools/phasetips">Complete example</a></strong>
 
