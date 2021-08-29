@@ -1,6 +1,11 @@
 # PhaseTips
 A tooltips UI component for Phaser.io Javascript library
 
+### A new V3 Version is here: https://github.com/netgfx/Phaser-tooltip
+
+---
+<br>
+
 <h3>Initialize the tooltip anywhere in your game</h3>
 
 ```
